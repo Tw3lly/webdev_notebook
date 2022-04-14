@@ -134,10 +134,55 @@ INSERT INTO orders
 VALUES (1, 4362, 2, 1)
 ```
 
-**Joining tables** Joins tables where we specify which columns you want. This will create a table with order\_number, customer name, lastname and address.
+**Joining tables** \
+Joins tables where we specify which columns you want. This will create a table with order\_number, customer name, lastname and address.
 
 ```
 SELECT orders.order_number, customers.first_name, customers.last_name, customer.address
 FROM orders 
 INNER JOIN customers ON orders.customer_id = customers.id
 ```
+
+**Dropping tables**\
+****To be used with caution as table will be permanently be deleted with no confirmation.&#x20;
+
+```shell-session
+DROP TABLE logins;
+```
+
+**Alter tables**\
+****Alters information in table
+
+```sql
+# Adds a column to the logins table
+ALTER TABLE logins ADD newColumn INT;
+
+# Renames column 
+ALTER TABLE logins RENAME COLUMN newColumn TO oldColumn;
+
+# Alters data type for a column
+ALTER TABLE logins MODIFY oldColumn DATE;
+
+# Drops a column in a table
+ALTER TABLE logins DROP oldColumn;
+```
+
+**Update statement**
+
+Alter changes a tables properties, update updates specific records within a table, based on certain conditions.\
+&#x20;\
+Syntax:&#x20;
+
+```sql
+# With update you have to specify WHERE
+UPDATE table_name SET column1=newvalue1, column2=newvalue2, ... WHERE <condition>;
+
+# Updates password to change_password where ID number is greather than 1
+UPDATE logins SET password = 'change_password' WHERE id > 1;
+```
+
+\
+
+
+****\
+****
