@@ -129,7 +129,8 @@ SELECT * FROM logins WHERE username LIKE 'admin%';
 # Searches for users with 5 characters in username
 SELECT * FROM logins WHERE username like '_____';
 
-
+# Search example using Operators
+SELECT * FROM logins WHERE username != 'john' AND id > 1;
 
 ```
 
@@ -223,8 +224,53 @@ UPDATE table_name SET column1=newvalue1, column2=newvalue2, ... WHERE <condition
 UPDATE logins SET password = 'change_password' WHERE id > 1;
 ```
 
-\
+**Operators**\
+****Logical operators for using multiple conditions at once.&#x20;
 
+**AND operator**\
+****Takes a condition and returns True or False
 
-****\
+```sql
+# Example, will return True
+# Instead of AND you can also use &&
+SELECT 1 = 1 AND 'test' = 'test';
+
+# Example, will return False
+SELECT 1 = 1 AND 'test' = 'sdgfg';
+```
+
+**OR operator**\
+****Takes 2 statements and evaluates if either one of them is True
+
+```sql
+# Example, will return True
+# Instead of OR you can also use ||
+SELECT 1 = 1 OR 'abc' = 'cba';
+
+# Example will return False
+SELECT 1 = 2 OR 'abc' = 'cba';
+```
+
+**NOT operator**\
+****Statement will be converted from True to False, or False to True etc
+
+```sql
+# Example, returns False
+# Instead of NOT you can put an ! before the =. 
+SELECT NOT 1 = 1;
+
+# Example, return True
+SELECT NOT 1 = 2;
+```
+
+**Multiple Operators Precedence**\
+****SQL also supports various other operations.&#x20;
+
+```
+Division (/), Multiplication (*), and Modulus (%)
+Addition (+) and subtraction (-)
+Comparison (=, >, <, <=, >=, !=, LIKE)
+```
+
+&#x20;**** \
 ****
