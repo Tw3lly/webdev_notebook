@@ -92,7 +92,49 @@ Select specific row
 SELECT * FROM products WHERE id=1
 ```
 
-**Update data** Update one piece of data, eg price of pencil
+**Sorting**
+
+```sql
+# Sort by password in ascending order 
+SELECT * FROM logins ORDER BY password;
+
+# Sort by descending order
+SELECT * FROM logins ORDER BY password DESC;
+
+# Sort by multiple columns
+SELECT * FROM logins ORDER BY password DESC, id ASC;
+
+## Limiting Results ##
+# Limits the amount of record to 2 
+SELECT * FROM logins LIMIT 2;
+
+# Limits with an offset
+SELECT * FROM logins LIMIT 1, 2;
+
+## Using Where ## 
+Syntax:
+SELECT * FROM table_name WHERE <condition>;
+
+# Show data where id is greather than 1
+SELECT * FROM logins WHERE id > 1;
+
+# Searching for users with admin username 
+SELECT * FROM logins where username = 'admin';
+
+## Sorting using LIKE ##
+# Takes all records where username STARTS with admin
+SELECT * FROM logins WHERE username LIKE 'admin%';
+# % is a wildcard and matches all characters after admin
+
+# Searches for users with 5 characters in username
+SELECT * FROM logins WHERE username like '_____';
+
+
+
+```
+
+**Update data** \
+Update one piece of data, eg price of pencil
 
 ```
 UPDATE products
